@@ -20,10 +20,15 @@ public class GameController {
     GameService gameService;
 
     @PostMapping
+    public ResponseEntity<String> newGame(){
+        String response = gameService.newGame();
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PostMapping("/play")
     public ResponseEntity<String> compareCards(@RequestBody ArrayList<Card> cards){
         String gameResponse = gameService.checkWinner(cards);
         return new ResponseEntity<>(gameResponse, HttpStatus.CREATED);
     }
-
 
 }

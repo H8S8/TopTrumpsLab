@@ -31,4 +31,8 @@ public class Card {
     public int getCardValue(){
         return this.rank.getValue();
     }
+
+    public int getSuitIndex(){return this.suit.getIndex();}
+
+    public String getSuitEmoji(){return this.suit.getEmojiHex();}
 }
