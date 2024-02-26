@@ -34,7 +34,7 @@ public class Deck {
     }
 
     public String remainingCards(){
-        
+
         String output = "";
 
         for(Suit suit: Suit.values()){

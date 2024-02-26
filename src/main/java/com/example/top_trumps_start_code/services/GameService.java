@@ -27,21 +27,20 @@ public class GameService {
             return "The card deck has not been initialised.";
         }
 
-        // Check if either of the cards have already been drawn
+        //Could check for spelling mistakes?
+
+        // Check if either of the cards have already been drawn, if not, remove them from the deck
         if(!(deck.cardInDeck(card1))){
             return card1.getCardValue() + " of " + card1.getSuit() + " is no longer in the deck.\n" +
                     "Please see the available cards listed below:\n\n" + deck.remainingCards();
         }
+        deck.removeCard(card1);
+
         if(!(deck.cardInDeck(card2))){
             return card2.getCardValue() + " of " + card2.getSuit() + " is no longer in the deck.\n" +
                     "Please see the available cards listed below:\n\n" + deck.remainingCards();
         }
-
-        // Remove these cards from the deck
-        deck.removeCard(card1);
         deck.removeCard(card2);
-
-        // Could check for spelling mistakes here
 
         if(card1.getCardValue() > card2.getCardValue()){
             return String.format("%s of %s is the winner!", card1.getRank(), card1.getSuit());
